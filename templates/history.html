@@ -1,0 +1,520 @@
+<style>
+ 
+
+
+* {
+    margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif;
+    
+  }
+  
+  html {
+    font-size: 1.25rem;
+  }
+
+
+
+
+  
+
+.wrapper{ 
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.wrapper .navbar{
+  width: 420px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 25px;
+  border-radius: 5px;
+}
+
+.wrapper .navbar ul li a{
+  color: #644def;
+}
+
+.wrapper .navbar .left ul,
+.wrapper .navbar .right ul li a{
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.wrapper .navbar .left ul li,
+.wrapper .navbar .right img{
+  margin: 0 10px;
+}
+
+.wrapper .navbar .right a{
+  text-align: right;
+}
+
+.wrapper .navbar .right a span{
+  font-size: 10px;
+}
+
+.wrapper .navbar .right ul li{
+  position: relative;
+}
+
+.wrapper .navbar .right ul li .dropdown{
+  position: absolute;
+  top: 65px;
+  right: 0;
+  background: #fff;
+  padding: 10px 25px;
+  border-radius: 5px;
+  display: none;
+}
+
+.wrapper .navbar .right ul li .dropdown .fas{
+  margin-right: 10px;
+}
+
+.wrapper .navbar .right ul li .dropdown:before{
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 10px solid;
+  border-color: transparent transparent #fff transparent;
+}
+
+.wrapper .navbar .right ul li.active .dropdown{
+  display: block;}
+
+
+
+ 
+
+  
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: hsl(220, 20%, 98%);
+    background-color: hsl(220, 30%, 12%);
+    background-image: linear-gradient(
+      135deg,
+      hsl(220, 30%, 12%),
+      hsl(220, 40%, 8%)
+    );
+  }
+  
+  h1,
+  h2 {
+    margin: 0;
+    font-weight: 900;
+  }
+  
+  a {
+    color: inherit;
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  label,
+  input,
+  button {
+    display: block;
+    border: 0;
+    background: none;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+  }
+  
+  button::-moz-focus-inner {
+    border: 0;
+  }
+  
+  .site-header {
+    display: flex;
+    align-items: center;
+    font-weight: 900;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+  }
+  
+  .site-header__logo {
+    margin-right: 0.5rem;
+  }
+  
+  .book-container {
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+  
+  @media (min-width: 60em) {
+    .book-container {
+      padding: 2rem 4rem;
+    }
+  }
+
+
+  .blue { color: #185875; }
+.yellow { color: #FFF842; }
+
+.container th h1 {
+	  font-weight: bold;
+	  font-size: 1em;
+  text-align: left;
+  color: #185875;
+}
+
+.container td {
+	  font-weight: normal;
+	  font-size: 1em;
+  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+	   -moz-box-shadow: 0 2px 2px -2px #0E1119;
+	        box-shadow: 0 2px 2px -2px #0E1119;
+}
+/* Background-color of the odd rows */
+.container tr:nth-child(odd) {
+	  background-color: #323C50;
+}
+
+/* Background-color of the even rows */
+.container tr:nth-child(even) {
+	  background-color: #2C3446;
+}
+
+.container th {
+	  background-color: #1F2739;
+}
+
+.container td:first-child { color: #FB667A; }
+
+.container tr:hover {
+   background-color: #464A52;
+-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+	   -moz-box-shadow: 0 6px 6px -6px #0E1119;
+	        box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+.container td:hover {
+  background-color: #FFF842;
+  color: #403E10;
+  font-weight: bold;
+  
+  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  
+  transition-delay: 0s;
+	  transition-duration: 0.4s;
+	  transition-property: all;
+  transition-timing-function: line;
+}
+
+@media (max-width: 800px) {
+.container td:nth-child(4),
+.container th:nth-child(4) { display: none; }
+}
+  
+  .container {
+
+
+    text-align: left;
+	  overflow: hidden;
+	  width: 80%;
+	  margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
+
+
+     margin-top: 1rem;
+    /* min-height: 100vh; */ 
+    
+    /* grid-template-rows: auto 1fr;
+    padding: 1.5rem; */
+    
+  }
+  
+  .form {
+    width: 100%;
+    max-width: 30rem;
+    margin: 0 auto;
+    align-self: center;
+  }
+  
+  .field {
+    width: 50%;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    border-radius: 0.25rem;
+    background-color: hsl(220, 30%, 70%);
+    box-shadow: 0 2px 6px hsla(220, 10%, 10%, 0.5);
+    overflow: hidden;
+    transition: background-color 0.2s;
+  }
+  
+  .field:focus-within {
+    background-color: hsl(220, 30%, 92%);
+    box-shadow: 0 2px 6px hsla(220, 10%, 10%, 0.5),
+      0 2px 12px hsla(220, 10%, 10%, 0.5);
+  }
+  
+  .field__input {
+    flex: 1;
+    padding: 0.5rem;
+    color: hsl(220, 20%, 20%);
+  }
+  
+  .field:focus-within .field__input {
+    outline: 0; /* only disable input outline if :focus-within works */
+  }
+  
+  .field__button {
+    padding: 0.5rem 1rem;
+    color: hsl(220, 20%, 20%);
+    transition: background-color 0.2s;
+  }
+  
+  .field__button:hover,
+  .field__button:focus {
+    background-color: hsl(220, 30%, 80%);
+  }
+  
+  .grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    grid-gap: 2rem;
+  }
+  
+  .card {
+    position: relative;
+    display: grid;
+    box-shadow: 0 2px 6px hsla(220, 10%, 10%, 0.6),
+      0 2px 12px hsla(220, 10%, 10%, 0.6);
+    border-radius: 0.25rem;
+    padding: 2rem 1.5rem 1.5rem;
+    font-weight: 300;
+    background-color: hsl(220, 32%, 18%);
+    color: hsl(220, 30%, 80%);
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .card:hover {
+    background-color: hsl(220, 32%, 20%);
+  }
+  
+  .card__image {
+    order: -1;
+    justify-self: center;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 6px hsla(220, 10%, 10%, 0.6);
+  }
+  
+  .card__title {
+    margin-top: 1.5rem;
+    line-height: 1;
+  }
+  
+  .card__link {
+    text-decoration: none;
+  }
+  
+  .card__link:hover,
+  .card__link:focus {
+    text-decoration: underline;
+  }
+  
+  .card__link::after {
+    content: "";
+    position: absolute;
+    top: 50;
+    left: 0;
+    width: 10%;
+    height: 10%;
+  }
+  
+  .card__publisher {
+    margin-top: 1rem;
+    text-align: right;
+    align-self: end;
+    font-size: 0.875rem;
+    color: hsl(200, 30%, 75%);
+  }
+  
+  .error {
+    margin-top: 1.5rem;
+    box-shadow: 0 2px 6px hsla(220, 10%, 10%, 0.6),
+      0 2px 12px hsla(220, 10%, 10%, 0.6);
+    border-radius: 0.25rem;
+    padding: 2rem 1.5rem 1.5rem;
+    font-weight: 300;
+    background-color: hsl(220, 32%, 18%);
+    color: hsl(220, 30%, 80%);
+  }
+
+
+  .input-group-text {
+    background: #f7ba5b !important;
+    color: white !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+  }
+ 
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  </style>
+
+
+
+<html lang="en">
+    <head>
+  
+      <script src="https://kit.fontawesome.com/5e5cd56b53.js" crossorigin="anonymous"></script>
+      <!-- <script src="https://kit.fontawesome.com/b99e675b6e.js"></script> -->
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>BookXplore</title>
+      </head>
+  
+      <body>
+       
+  
+        <div class="wrapper">
+          <div class="navbar">
+              <div class="left">
+                  <ul>
+                    <li><a href="{% url 'home' %}">
+                      <i class="fas fa-home"></i></a></li>
+                      <li><a href="{% url 'userspage' %}">
+                        <i class="fas fa-users"></i></a></li>
+                        <li><a href="{% url 'allpost' %}">
+                            <i class="fas fa-comments"></i></a></li>
+                </ul>
+              </div>
+              <div class="right">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <p>Hello {{request.user}} <br> <span>User</span></p><img src="https://raw.githubusercontent.com/codingmarket07/DropDown-Navigation-Bar-JL02/master/Profile.png" alt="Admin" width="50"><i class="fas fa-angle-down"></i>
+                      </a>
+                       
+                      <div class="dropdown">
+                          <ul>
+                            <li><a href="{% url 'usersavedbook' %}"><i class="fas fa-download"></i> SavedBooks</a></li>
+                            <li><a href="{% url 'showhistory' %}"><i class="fas fa-history"></i> History</a></li>
+                            <li><a href="{% url 'logoutuser' %}"><i class="fas fa-sign-out-alt"></i> Signout</a></li>
+                        </ul>
+                      </div>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div>
+      </div>
+  
+  
+          
+        
+  
+  
+      <main class="container">
+        <header class="site-header">
+  
+            
+          <div
+            class="site-header__logo"
+            
+          ><i class="fas fa-book-reader" style='font-size:50px' ></i></div>
+            <path
+              d="M16 7 C16 7 9 1 2 6 L2 28 C9 23 16 28 16 28 16 28 23 23 30 28 L30 6 C23 1 16 7 16 7 Z M16 7 L16 28"
+            ></path>
+          </svg>
+          <h1>BookXplore</h1>
+  
+  
+         
+  
+          </header>
+
+          <br>
+      <br>
+          <br>
+          <h1>History </h1>
+         
+          <table class="container">
+            <thead>
+              <tr>
+                  <th><h1>Search</h1></th>
+                  <th><h1>Delete Option</h1></th>
+                  
+              </tr>
+          </thead>
+
+          <tbody>
+            {% for d1 in d %}
+            <tr>
+                <td>{{d1.isbn}}</td>
+                
+                <td><a href="{% url 'deletehistory' historyid=d1.id %}"><i class="fas fa-trash-alt"></i>delete</a></td>
+               
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+          
+    
+            <!-- {% for d1 in d %}
+            <tr>
+              
+            
+            
+              <td> <div class ="left">{{d1.isbn}}</div>
+                 <div class ="right">
+                <a href="{% url 'deletehistory' historyid=d1.id %}"><i class="fas fa-trash-alt"></i>delete</a> </div>
+              </td>
+             
+            </tr>
+            {% endfor %}
+          
+          </table>   -->
+ 
+          </main>
+          </body>
+
+          <script>
+            document.querySelector(".right ul li").addEventListener("click", function(){
+                this.classList.toggle("active");
+            });
+          </script>
+          </html>
+
+<!-- {% for d1 in d %}
+  {{d1}}
+  {% endfor %} -->
+

@@ -1,0 +1,635 @@
+<style>
+
+
+
+
+* {
+      margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+      
+    }
+    
+    html {
+      font-size: 1.25rem;
+    }
+  
+  
+  
+  
+  
+   
+  
+    
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      color: hsl(220, 20%, 98%);
+      background-color: hsl(220, 30%, 12%);
+      background-image: linear-gradient(
+        135deg,
+        hsl(220, 30%, 12%),
+        hsl(220, 40%, 8%)
+      );
+    }
+    
+    h1,
+    h2 {
+      margin: 0;
+      font-weight: 900;
+    }
+    
+    a {
+      color: inherit;
+    }
+    
+    ul {
+      margin-top: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    label,
+    input,
+    button {
+      display: block;
+      border: 0;
+      background: none;
+      font-size: inherit;
+      font-family: inherit;
+      color: inherit;
+    }
+    
+    button::-moz-focus-inner {
+      border: 0;
+    }
+    
+    .site-header {
+      display: flex;
+      align-items: center;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      text-decoration: none;
+    }
+    
+    .site-header__logo {
+      margin-right: 0.5rem;
+    }
+    
+    .book-container {
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    
+    @media (min-width: 60em) {
+      .book-container {
+        padding: 2rem 4rem;
+      }
+    }
+    
+    .container {
+      margin-top: 1rem;
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      padding: 1.5rem;
+    }
+    
+    .form {
+      width: 100%;
+      max-width: 30rem;
+      margin: 0 auto;
+      align-self: center;
+    }
+    
+    .field {
+      width: 50%;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      border-radius: 0.25rem;
+      background-color: hsl(220, 30%, 70%);
+      box-shadow: 0 2px 6px hsla(220, 10%, 10%, 0.5);
+      overflow: hidden;
+      transition: background-color 0.2s;
+    }
+    
+    .field:focus-within {
+      background-color: hsl(220, 30%, 92%);
+      box-shadow: 0 2px 6px hsla(220, 10%, 10%, 0.5),
+        0 2px 12px hsla(220, 10%, 10%, 0.5);
+    }
+    
+    .field__input {
+      flex: 1;
+      padding: 0.5rem;
+      color: hsl(220, 20%, 20%);
+    }
+    
+    .field:focus-within .field__input {
+      outline: 0; /* only disable input outline if :focus-within works */
+    }
+    
+    .field__button {
+      padding: 0.5rem 1rem;
+      color: hsl(220, 20%, 20%);
+      transition: background-color 0.2s;
+    }
+    
+    .field__button:hover,
+    .field__button:focus {
+      background-color: hsl(220, 30%, 80%);
+    }
+    
+    .grid {
+      margin-top: .5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+      grid-gap: 2rem;
+    }
+    
+    .card {
+      position: relative;
+      display: grid;
+      box-shadow: 0 2px 6px hsla(220, 10%, 10%, 0.6),
+        0 2px 12px hsla(220, 10%, 10%, 0.6);
+      border-radius: 0.25rem;
+      padding: 2rem 1.5rem 1.5rem;
+      font-weight: 300;
+      background-color: hsl(220, 32%, 18%);
+      color: hsl(220, 30%, 80%);
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    .card:hover {
+      background-color: hsl(220, 32%, 20%);
+    }
+    
+    .card__image {
+      order: -1;
+      justify-self: center;
+      border-radius: 0.25rem;
+      box-shadow: 0 4px 6px hsla(220, 10%, 10%, 0.6);
+    }
+    
+    .card__title {
+      margin-top: 1.5rem;
+      line-height: 1;
+    }
+    
+    .card__link {
+      text-decoration: none;
+    }
+    
+    .card__link:hover,
+    .card__link:focus {
+      text-decoration: underline;
+    }
+    
+    .card__link::after {
+      content: "";
+      position: absolute;
+      top: 50;
+      left: 0;
+      width: 10%;
+      height: 10%;
+    }
+    
+    .card__publisher {
+      margin-top: 1rem;
+      text-align: right;
+      align-self: end;
+      font-size: 0.875rem;
+      color: hsl(200, 30%, 75%);
+    }
+    
+    .error {
+      margin-top: 1.5rem;
+      box-shadow: 0 2px 6px hsla(220, 10%, 10%, 0.6),
+        0 2px 12px hsla(220, 10%, 10%, 0.6);
+      border-radius: 0.25rem;
+      padding: 2rem 1.5rem 1.5rem;
+      font-weight: 300;
+      background-color: hsl(220, 32%, 18%);
+      color: hsl(220, 30%, 80%);
+    }
+  
+  
+    .input-group-text {
+      background: #f7ba5b !important;
+      color: white !important;
+      border: 0 !important;
+      border-radius: 0.25rem 0 0 0.25rem !important;
+    }
+
+
+
+
+
+    .wrapper{ 
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  
+  .wrapper .navbar{
+    width: 420px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 25px;
+    border-radius: 5px;
+  }
+  
+  .wrapper .navbar ul li a{
+    color: #644def;
+  }
+  
+  .wrapper .navbar .left ul,
+  .wrapper .navbar .right ul li a{
+    display: flex;
+    align-items: center;
+    height: 40px;
+  }
+  
+  .wrapper .navbar .left ul li,
+  .wrapper .navbar .right img{
+    margin: 0 10px;
+  }
+  
+  .wrapper .navbar .right a{
+    text-align: right;
+  }
+  
+  .wrapper .navbar .right a span{
+    font-size: 10px;
+  }
+  
+  .wrapper .navbar .right ul li{
+    position: relative;
+  }
+  
+  .wrapper .navbar .right ul li .dropdown{
+    position: absolute;
+    top: 65px;
+    right: 0;
+    background: #fff;
+    padding: 10px 25px;
+    border-radius: 5px;
+    display: none;
+  }
+  
+  .wrapper .navbar .right ul li .dropdown .fas{
+    margin-right: 10px;
+  }
+  
+  .wrapper .navbar .right ul li .dropdown:before{
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 10px solid;
+    border-color: transparent transparent #fff transparent;
+  }
+  
+  .wrapper .navbar .right ul li.active .dropdown{
+    display: block;}
+
+
+
+
+
+    /* * {
+      box-sizing: border-box;
+    }
+    
+    html {
+      font-size: 1.25rem;
+    }
+    
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      color: hsl(220, 20%, 98%);
+      background-color: hsl(220, 30%, 12%);
+      background-image: linear-gradient(
+        135deg,
+        hsl(220, 30%, 12%),
+        hsl(220, 40%, 8%)
+      );
+    }
+    
+    h1,
+    h2 {
+      margin: 0;
+      font-weight: 900;
+    }
+    
+    a {
+      color: inherit;
+    }
+    
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    label,
+    input,
+    button {
+      display: block;
+      border: 0;
+      background: none;
+      font-size: inherit;
+      font-family: inherit;
+      color: inherit;
+    }
+    
+    button::-moz-focus-inner {
+      border: 0;
+    }
+    
+    .site-header {
+      display: flex;
+      align-items: center;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      text-decoration: none;
+    }
+    
+    .site-header__logo {
+      margin-right: 0.5rem;
+    }
+    
+    .book-container {
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    
+    @media (min-width: 60em) {
+      .book-container {
+        padding: 2rem 4rem;
+      }
+    }
+    
+    .container {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      padding: 1.5rem;
+    }
+    
+    .form {
+      width: 100%;
+      max-width: 30rem;
+      margin: 0 auto;
+      align-self: center;
+    }
+    
+    .field {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      border-radius: 0.25rem;
+      background-color: hsl(220, 30%, 70%);
+      box-shadow: 0 2px 6px hsla(220, 10%, 10%, 0.5);
+      overflow: hidden;
+      transition: background-color 0.2s;
+    }
+    
+    .field:focus-within {
+      background-color: hsl(220, 30%, 92%);
+      box-shadow: 0 2px 6px hsla(220, 10%, 10%, 0.5),
+        0 2px 12px hsla(220, 10%, 10%, 0.5);
+    }
+    
+    .field__input {
+      flex: 1;
+      padding: 0.5rem;
+      color: hsl(220, 20%, 20%);
+    }
+    
+    .field:focus-within .field__input {
+      outline: 0; /* only disable input outline if :focus-within works */
+    /* }
+    
+    .field__button {
+      padding: 0.5rem 1rem;
+      color: hsl(220, 20%, 20%);
+      transition: background-color 0.2s;
+    }
+    
+    .field__button:hover,
+    .field__button:focus {
+      background-color: hsl(220, 30%, 80%);
+    }
+    
+    .grid {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+      grid-gap: 2rem;
+    }
+    
+    .card {
+      position: relative;
+      display: grid;
+      box-shadow: 0 2px 6px hsla(220, 10%, 10%, 0.6),
+        0 2px 12px hsla(220, 10%, 10%, 0.6);
+      border-radius: 0.25rem;
+      padding: 2rem 1.5rem 1.5rem;
+      font-weight: 300;
+      background-color: hsl(220, 32%, 18%);
+      color: hsl(220, 30%, 80%);
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    .card:hover {
+      background-color: hsl(220, 32%, 20%);
+    }
+    
+    .card__image {
+      order: -1;
+      justify-self: center;
+      border-radius: 0.25rem;
+      box-shadow: 0 4px 6px hsla(220, 10%, 10%, 0.6);
+    }
+    
+    .card__title {
+      margin-top: 1.5rem;
+      line-height: 1;
+    }
+    
+    .card__link {
+      text-decoration: none;
+    }
+    
+    .card__link:hover,
+    .card__link:focus {
+      text-decoration: underline;
+    }
+    
+    .card__link::after {
+      content: "";
+      position: absolute;
+      top: 50;
+      left: 0;
+      width: 10%;
+      height: 10%;
+    }
+    
+    .card__publisher {
+      margin-top: 1rem;
+      text-align: right;
+      align-self: end;
+      font-size: 0.875rem;
+      color: hsl(200, 30%, 75%);
+    }
+    
+    .error {
+      margin-top: 1.5rem;
+      box-shadow: 0 2px 6px hsla(220, 10%, 10%, 0.6),
+        0 2px 12px hsla(220, 10%, 10%, 0.6);
+      border-radius: 0.25rem;
+      padding: 2rem 1.5rem 1.5rem;
+      font-weight: 300;
+      background-color: hsl(220, 32%, 18%);
+      color: hsl(220, 30%, 80%);
+    } */ 
+    </style>
+    
+    
+    <html lang="en">
+      <head>
+       <script src="https://kit.fontawesome.com/5e5cd56b53.js" crossorigin="anonymous"></script>
+      <!-- <script src="https://kit.fontawesome.com/b99e675b6e.js"></script> -->
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>BookXplore</title>
+      </head>
+  
+      <body>
+       
+  
+        <div class="wrapper">
+          <div class="navbar">
+              <div class="left">
+                  <ul>
+                    <li><a href="{% url 'home' %}">
+                      <i class="fas fa-home"></i></a></li>
+                      <li><a href="{% url 'userspage' %}">
+                        <i class="fas fa-users"></i></a></li>
+                        <li><a href="{% url 'allpost' %}">
+                            <i class="fas fa-comments"></i></a></li>
+                </ul>
+              </div>
+              <div class="right">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <p>Hello {{request.user}} <br> <span>User</span></p><img src="https://raw.githubusercontent.com/codingmarket07/DropDown-Navigation-Bar-JL02/master/Profile.png" alt="Admin" width="50"><i class="fas fa-angle-down"></i>
+                      </a>
+                       
+                      <div class="dropdown">
+                          <ul>
+                            <li><a href="{% url 'usersavedbook' %}"><i class="fas fa-download"></i> SavedBooks</a></li>
+                            <li><a href="{% url 'showhistory' %}"><i class="fas fa-history"></i> History</a></li>
+                            <li><a href="{% url 'logoutuser' %}"><i class="fas fa-sign-out-alt"></i> Signout</a></li>
+                        </ul>
+                      </div>
+                      
+                    </li>
+                </ul>
+              </div>
+          </div>
+      </div>
+  
+  
+          
+        
+  
+  
+      <main class="container">
+        <header class="site-header">
+  
+            
+          <div
+            class="site-header__logo"
+            
+          ><i class="fas fa-book-reader" style='font-size:50px' ></i></div>
+            <path
+              d="M16 7 C16 7 9 1 2 6 L2 28 C9 23 16 28 16 28 16 28 23 23 30 28 L30 6 C23 1 16 7 16 7 Z M16 7 L16 28"
+            ></path>
+          </svg>
+          <h1>BookXplore</h1>
+
+
+          </header>
+          
+          <br>
+          <br>
+          <br>
+          <br>
+          <h1>Saved Books</h1>
+          
+        {% if books %}
+        <ul class="grid">
+            
+            {% csrf_token %}
+          {% for book in books %}
+    
+          <li class="card">
+            <h2 class="card__title">
+                <!-- <button type="button" onclick="alert('You pressed the button!')">Click me!</button> -->
+              <a class="card__link" name ="binfo" href="{{ book.info }}">{{ book.title }}</a>
+            </h2>
+            <img
+              class="card__image"
+              width="128"
+              height="190"
+              src="{{ book.image }}"
+              alt="{{ book.title }}"
+            />
+            <div class="card__author">by {{ book.authors }}</div>
+            <div class="card__publisher">{{ book.publisher }}</div>
+            <!-- <button type="button" onclick="alert('You pressed the button!')">Click me!</button> -->
+            <a href="{% url 'deletebook' bookid=book.id %}" class="ml-2"  onclick="alert('This book will be deleted !')" >Delete</a>  
+          
+          </li>
+          
+    
+          {% endfor %}
+        </ul>
+        {% else %}
+        <div class="error">
+          <h2>
+            {{message }}
+          </h2>
+          <h2>
+          <a href= "{% url 'home' %}">Search again</a>
+        </h2>
+        </div>
+    
+        {% endif %}
+        </main>
+      </body>
+      <script>
+        document.querySelector(".right ul li").addEventListener("click", function(){
+            this.classList.toggle("active");
+        });
+      </script>
+    </html>
